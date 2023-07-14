@@ -23,9 +23,9 @@ public class ServeCommand implements Command{
         while(true){
             System.out.print("was current client served successfully?: ");
             String status = scanner.nextLine();
-            if (status.trim() == "yes" || status.trim() == "no"){
+            if (status.toLowerCase().trim().equals("yes") || status.toLowerCase().trim().equals("no")){
                 Client client = clientManager.getQueue().poll();
-                if (status.trim() == "yes"){
+                if (status.toLowerCase().trim().equals("yes")){
                     clientManager.serve(client, ClientStatus.SUCCESS);
                 }
                 else{
